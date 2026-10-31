@@ -1,0 +1,35 @@
+{
+  "name": "VotingRound",
+  "type": "object",
+  "properties": {
+    "label": {
+      "type": "string",
+      "title": "Round Label"
+    },
+    "ends_at": {
+      "type": "string",
+      "title": "Voting Closes At (ISO)"
+    }
+  },
+  "required": [
+    "ends_at"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

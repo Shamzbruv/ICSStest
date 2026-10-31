@@ -1,0 +1,63 @@
+{
+  "name": "TokenPurchase",
+  "type": "object",
+  "properties": {
+    "voter_id": {
+      "type": "string",
+      "title": "Voter ID"
+    },
+    "package_id": {
+      "type": "string",
+      "title": "Package ID"
+    },
+    "tokens": {
+      "type": "number",
+      "title": "Tokens"
+    },
+    "amount_usd": {
+      "type": "number",
+      "title": "Amount (USD)"
+    },
+    "stripe_session_id": {
+      "type": "string",
+      "title": "Stripe Session ID"
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "pending",
+        "completed",
+        "failed"
+      ],
+      "default": "pending"
+    }
+  },
+  "required": [
+    "voter_id",
+    "tokens",
+    "amount_usd"
+  ],
+  "rls": {
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

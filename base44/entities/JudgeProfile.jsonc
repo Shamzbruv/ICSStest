@@ -1,0 +1,63 @@
+{
+  "name": "JudgeProfile",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "title": "Judge User ID"
+    },
+    "name": {
+      "type": "string",
+      "title": "Display Name"
+    },
+    "profession": {
+      "type": "string",
+      "title": "Profession",
+      "description": "e.g. Producer, Artist, Music Executive, Vocal Coach"
+    },
+    "bio": {
+      "type": "string",
+      "title": "Bio"
+    },
+    "image_url": {
+      "type": "string",
+      "title": "Photo URL"
+    }
+  },
+  "required": [
+    "user_id",
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

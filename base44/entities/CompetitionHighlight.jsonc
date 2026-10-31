@@ -1,0 +1,82 @@
+{
+  "name": "CompetitionHighlight",
+  "type": "object",
+  "properties": {
+    "battle_id": {
+      "type": "string",
+      "title": "Battle ID"
+    },
+    "battle_title": {
+      "type": "string",
+      "title": "Battle Title"
+    },
+    "winner_id": {
+      "type": "string",
+      "title": "Winner Contestant ID"
+    },
+    "winner_name": {
+      "type": "string",
+      "title": "Winner Name"
+    },
+    "winner_parish": {
+      "type": "string",
+      "title": "Winner Parish"
+    },
+    "winner_image_url": {
+      "type": "string",
+      "title": "Winner Image URL"
+    },
+    "avg_performance": {
+      "type": "number",
+      "title": "Avg Performance",
+      "default": 0
+    },
+    "avg_attire": {
+      "type": "number",
+      "title": "Avg Attire",
+      "default": 0
+    },
+    "avg_crowd_engagement": {
+      "type": "number",
+      "title": "Avg Crowd Engagement",
+      "default": 0
+    },
+    "avg_total": {
+      "type": "number",
+      "title": "Avg Total",
+      "default": 0
+    },
+    "judges": {
+      "type": "number",
+      "title": "Judges Count",
+      "default": 0
+    },
+    "fan_votes": {
+      "type": "number",
+      "title": "Winner Fan Votes",
+      "default": 0
+    }
+  },
+  "required": [
+    "battle_id",
+    "winner_id"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

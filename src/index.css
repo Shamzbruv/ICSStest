@@ -1,0 +1,138 @@
+/* base44-workspace-fonts:start */
+@font-face {
+  font-family: 'Helvetica Bold';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('https://media.base44.com/files/public/builder-assets/wix-fonts/helvetica-700-normal.woff2') format('woff2');
+}
+/* base44-workspace-fonts:end */
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 45% 13%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 44 100% 48%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 82%;
+    --accent: 190 100% 50%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 44 100% 48%;
+    --chart-1: 44 100% 48%;
+    --chart-2: 190 100% 50%;
+    --chart-3: 0 0% 18%;
+    --chart-4: 0 0% 60%;
+    --chart-5: 0 0% 96%;
+    --radius: 0.5rem;
+    --font-heading: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-body: 'Manrope', ui-sans-serif, system-ui, sans-serif;
+    --font-display: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --sidebar-background: 0 0% 18%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 44 100% 48%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 190 100% 50%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 25%;
+    --sidebar-ring: 44 100% 48%;
+  }
+
+  .dark {
+    --background: 150 50% 11%;
+    --foreground: 0 0% 96%;
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 96%;
+    --popover: 0 0% 14%;
+    --popover-foreground: 0 0% 96%;
+    --primary: 44 100% 48%;
+    --primary-foreground: 0 0% 10%;
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 96%;
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 82%;
+    --accent: 190 100% 50%;
+    --accent-foreground: 0 0% 10%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 22%;
+    --input: 0 0% 22%;
+    --ring: 44 100% 48%;
+    --chart-1: 44 100% 48%;
+    --chart-2: 190 100% 50%;
+    --chart-3: 0 0% 18%;
+    --chart-4: 0 0% 60%;
+    --chart-5: 0 0% 96%;
+    --sidebar-background: 0 0% 14%;
+    --sidebar-foreground: 0 0% 96%;
+    --sidebar-primary: 44 100% 48%;
+    --sidebar-primary-foreground: 0 0% 10%;
+    --sidebar-accent: 190 100% 50%;
+    --sidebar-accent-foreground: 0 0% 10%;
+    --sidebar-border: 0 0% 22%;
+    --sidebar-ring: 44 100% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  .font-display,
+  .font-heading {
+    font-weight: 700;
+  }
+}
+
+/* Mobile-native behaviors */
+html,
+body,
+main {
+  overscroll-behavior: none;
+}
+
+/* UI controls are not selectable; content stays selectable */
+button,
+[role="button"],
+nav,
+nav a,
+header a,
+label,
+svg {
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-touch-callout: none;
+}
+
+p,
+h1,
+h2,
+h3,
+input,
+textarea,
+.select-text {
+  -webkit-user-select: text;
+  user-select: text;
+}

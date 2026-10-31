@@ -1,0 +1,80 @@
+{
+  "name": "BattleScore",
+  "type": "object",
+  "properties": {
+    "battle_id": {
+      "type": "string",
+      "title": "Battle ID"
+    },
+    "contestant_id": {
+      "type": "string",
+      "title": "Contestant ID"
+    },
+    "judge_id": {
+      "type": "string",
+      "title": "Judge ID"
+    },
+    "performance": {
+      "type": "number",
+      "title": "Performance",
+      "default": 0
+    },
+    "attire": {
+      "type": "number",
+      "title": "Attire",
+      "default": 0
+    },
+    "crowd_engagement": {
+      "type": "number",
+      "title": "Crowd Engagement",
+      "default": 0
+    }
+  },
+  "required": [
+    "battle_id",
+    "contestant_id"
+  ],
+  "rls": {
+    "read": {
+      "$or": [
+        {
+          "data.judge_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "create": {
+      "$or": [
+        {
+          "data.judge_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "update": {
+      "$or": [
+        {
+          "data.judge_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

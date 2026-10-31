@@ -1,0 +1,55 @@
+{
+  "name": "Comment",
+  "type": "object",
+  "properties": {
+    "contestant_id": {
+      "type": "string",
+      "title": "Contestant ID"
+    },
+    "voter_id": {
+      "type": "string",
+      "title": "Voter ID"
+    },
+    "author_name": {
+      "type": "string",
+      "title": "Author Name",
+      "default": "Anonymous Fan"
+    },
+    "text": {
+      "type": "string",
+      "title": "Text"
+    }
+  },
+  "required": [
+    "contestant_id",
+    "text"
+  ],
+  "rls": {
+    "create": null,
+    "read": null,
+    "update": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "$or": [
+        {
+          "created_by_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "name": "Contestant",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "bio": {
+      "type": "string",
+      "title": "Bio"
+    },
+    "talent_category": {
+      "type": "string",
+      "title": "Talent Category",
+      "enum": [
+        "Singing"
+      ],
+      "default": "Singing"
+    },
+    "parish": {
+      "type": "string",
+      "title": "Parish",
+      "enum": [
+        "Kingston",
+        "St. Andrew",
+        "St. Catherine",
+        "Clarendon",
+        "St. Ann",
+        "Trelawny",
+        "St. James",
+        "Hanover",
+        "Westmoreland",
+        "St. Elizabeth",
+        "Manchester",
+        "St. Mary",
+        "Portland",
+        "St. Thomas"
+      ]
+    },
+    "video_url": {
+      "type": "string",
+      "title": "Video URL"
+    },
+    "image_url": {
+      "type": "string",
+      "title": "Image URL"
+    },
+    "vote_count": {
+      "type": "number",
+      "title": "Vote Count",
+      "default": 0
+    },
+    "status": {
+      "type": "string",
+      "title": "Status",
+      "enum": [
+        "active",
+        "eliminated",
+        "winner"
+      ],
+      "default": "active"
+    },
+    "order": {
+      "type": "number",
+      "title": "Display Order",
+      "default": 0
+    },
+    "user_id": {
+      "type": "string",
+      "title": "Linked Contestant User ID"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "$or": [
+        {
+          "data.user_id": "{{user.id}}"
+        },
+        {
+          "user_condition": {
+            "role": "admin"
+          }
+        }
+      ]
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

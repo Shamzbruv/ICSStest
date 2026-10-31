@@ -1,0 +1,11 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "tokens_balance": {
+      "type": "number",
+      "title": "Tokens Balance",
+      "default": 0
+    }
+  }
+}

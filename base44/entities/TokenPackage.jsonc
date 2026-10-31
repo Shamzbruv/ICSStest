@@ -1,0 +1,60 @@
+{
+  "name": "TokenPackage",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Name"
+    },
+    "tokens": {
+      "type": "number",
+      "title": "Tokens"
+    },
+    "bonus_tokens": {
+      "type": "number",
+      "title": "Bonus Tokens",
+      "default": 0
+    },
+    "price_usd": {
+      "type": "number",
+      "title": "Price (USD)"
+    },
+    "description": {
+      "type": "string",
+      "title": "Description"
+    },
+    "popular": {
+      "type": "boolean",
+      "title": "Popular",
+      "default": false
+    },
+    "order": {
+      "type": "number",
+      "title": "Display Order",
+      "default": 0
+    }
+  },
+  "required": [
+    "name",
+    "tokens",
+    "price_usd"
+  ],
+  "rls": {
+    "read": {},
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
