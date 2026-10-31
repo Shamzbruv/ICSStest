@@ -49,3 +49,7 @@ The supplied full logo is used in the header, hero, stage, and footer. The coord
 ## Validation
 
 Production Vite build and Node server syntax check pass. Browser checks cover homepage rendering, contestant search, demo vote/balance updates, and insufficient-token validation. The repository-wide original typecheck currently fails on the imported frontend UI component prop typings; those existing operational components are not used by the default client preview.
+
+## Interactive parish map
+
+The `/parishes` page uses a labelled 2D Jamaica SVG map with all 14 parishes, selection highlighting, an artist/vote detail panel, keyboard controls, and mobile-friendly parish selection. Geography is bundled locally; no map subscription or API key is needed. See `src/demo/MAP_DATA.md` for boundary provenance and licensing.
