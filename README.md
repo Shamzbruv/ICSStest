@@ -1,55 +1,19 @@
-# ICSS Test · Rep Yuh Place client preview
+# Rep Yuh Place — original design restored
 
-Client presentation redesign for **Rep Yuh Place — The Singing Edition**, prepared by iCreate Solutions & Services. Emerald, warm gold, responsive layouts, and the supplied official logo.
+The application now renders the original uploaded Base44 frontend: original home page, navigation, contestant and parish pages, battles, leaderboards, token store, contestant portal, judge dashboard, and admin dashboard. The supplied new official logo remains in the header and existing branded assets. The later redesign and interactive parish map are not part of the active website.
 
-## Deploy on Railway
+## Railway
 
-1. Create a Railway project → Deploy from GitHub → select **Shamzbruv/ICSStest** and branch **main**.
-2. Railway uses the included Dockerfile automatically. No environment variables or database are required for this demo.
-3. In Railway networking, generate a domain and open the HTTPS URL.
+Deploy `Shamzbruv/ICSStest`, branch `main`. The existing Dockerfile builds the Vite frontend; `npm start` serves it on `0.0.0.0` using Railway's `PORT`. Generate a domain in Railway after deployment.
 
-The server listens on `0.0.0.0` using Railway's `PORT`. All browser routes fall back to `index.html`; missing assets return 404. `railway.json` includes a health check.
+Without `VITE_BASE44_APP_ID`, the original layout renders in an explicitly labelled, read-only preview with empty records. The preview creates no accounts, records no votes, accepts no payments, and sends no emails. It must not be described as a completed backend.
 
-## Local development
+To reconnect the original hosted Base44 application, configure its real public build-time connection values: `VITE_BASE44_APP_ID`, `VITE_BASE44_APP_BASE_URL`, and, if required by that application, `VITE_BASE44_FUNCTIONS_VERSION`. Rebuild after changes. The Base44 backend functions, entity schemas, permissions, secrets, account access, payment configuration, and deployment still require setup and testing. Do not put service credentials in frontend environment variables or this public repository.
 
-Node 22.12+ recommended.
+`VITE_DEMO_MODE` is no longer used. The restored original application is always the entry point. Historical redesign files remain in `src/demo` for reference and do not load in the active application.
 
-```sh
-npm ci
-npm run dev
-```
+## Development and validation
 
-Production check:
+Use Node 22.12 or later, `npm ci`, then `npm run dev`. Build with `npm run build`; serve with `npm start`.
 
-```sh
-npm run build
-npm start
-```
-
-## Demo scope
-
-The default experience is a self-contained **client preview**. All artist names, totals, matchups, scores, and token packs are illustrative, not extracted database records. Artist artwork is deliberately labelled sample artwork. No invented live broadcast or contest deadlines are shown.
-
-Working interactions: parish and text filtering, contestant detail navigation, demo wallet top-ups, vote validation, browser-local vote persistence, ranking updates, reset demo, artist comparison, sample battle scorecards, mobile navigation, and route recovery. Forms are presentation-only and do not save or send personal data. Payments are disabled. Admin/judge routes do not expose operational data or pretend to provide real authentication.
-
-The source ZIP includes entity schemas and backend function implementations under `base44/`, which are retained. It does **not** include the production database records, Base44 application connection values, or deployment secrets needed to run those services. Original frontend pages/components remain under `src/pages`, `src/components`, `src/lib`, and `src/api`. The redesigned presentation is in `src/demo`. The supplied logo is in `public/brand`.
-
-## Future production integration
-
-The original Base44 frontend is retained for migration reference. Setting `VITE_DEMO_MODE=false` at build time selects that original frontend; this is NOT production ready until the original application's public Base44 environment values and its backend deployment are configured and verified. Existing environment variable names: `VITE_BASE44_APP_ID`, `VITE_BASE44_APP_BASE_URL`, `VITE_BASE44_FUNCTIONS_VERSION`. Do not add service credentials to Vite environment variables or this public repository. A visual redesign of the retained operational portals and reconnection of backend workflows are separate from this client demo.
-
-## Reusing this test repository
-
-This repository holds one active client demo at a time. Before replacing it, tag or archive the current version if it is still needed. Replace the application files and branding in a normal new commit to `main`; preserve Git history. Railway will deploy the latest main branch after its GitHub integration is connected.
-
-## Brand assets
-
-The supplied full logo is used in the header, hero, stage, and footer. The coordinated asset set includes browser favicons, Apple home screen icons, Android maskable icons, a 1200×630 social-sharing card, and an emerald/gold stage backdrop. See `public/brand/ASSETS.md`. Production HTML resolves social-image URLs against the Railway request origin.
-
-## Validation
-
-Production Vite build and Node server syntax check pass. Browser checks cover homepage rendering, contestant search, demo vote/balance updates, and insufficient-token validation. The repository-wide original typecheck currently fails on the imported frontend UI component prop typings; those existing operational components are not used by the default client preview.
-
-## Interactive parish map
-
-The `/parishes` page uses a labelled 2D Jamaica SVG map with all 14 parishes, selection highlighting, an artist/vote detail panel, keyboard controls, and mobile-friendly parish selection. Geography is bundled locally; no map subscription or API key is needed. See `src/demo/MAP_DATA.md` for boundary provenance and licensing.
+The original frontend contains existing JavaScript type-check issues and placeholder video/social links. Restoring its design does not certify its existing backend workflows as ready for live operation. See `BACKEND_SCOPE.md` for the observed workflow scope and implementation gaps.

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import { base44 } from "@/api/base44Client";
+import { base44, isBackendPreview } from "@/api/base44Client";
 import { Button } from "@/components/ui/button";
 import { Coins, Sparkles, Loader2, Check, PartyPopper } from "lucide-react";
 import { useVoter } from "@/lib/useVoter";
@@ -17,7 +17,7 @@ export default function TokenStore() {
   const { voterId, balance, refresh } = useVoter();
 
   useEffect(() => {
-    if (searchParams.get("status") === "success") {
+    if (!isBackendPreview && searchParams.get("status") === "success") {
       setJustPurchased(true);
       refresh();
       let n = 0;

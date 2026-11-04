@@ -48,17 +48,17 @@ export default function Layout() {
       <header
         className="sticky top-0 z-40 backdrop-blur-xl bg-background/80 border-b border-border"
         style={{ paddingTop: "env(safe-area-inset-top)" }}>
-        <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-4 min-h-16 py-2 flex flex-wrap items-center justify-between gap-2">
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <span className="w-9 h-9 rounded-full overflow-hidden shadow-sm flex-shrink-0 block">
+            <span className="w-20 h-12 flex-shrink-0 block">
               <Image
                 src="/brand/rep-yuh-place.webp"
                 alt="Rep Yuh Place logo"
-                className="w-full h-full object-cover" />
+                className="w-full h-full object-contain" />
             </span>
             <span className="tracking-tight text-sm [font-family:'Helvetica_Bold',_sans-serif] font-bold uppercase leading-none flex items-center">REP YUH PLACE</span>
           </Link>
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex w-full order-last flex-wrap items-center gap-1">
             {NAV_ITEMS.map(navItem)}
           </nav>
           <div className="flex items-center gap-2">
