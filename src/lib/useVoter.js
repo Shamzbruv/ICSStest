@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from "react";
-import { base44 } from "@/api/base44Client";
+import { base44, isBackendPreview } from "@/api/base44Client";
 
 const STORAGE_KEY = "spotlight_voter_id";
 
@@ -17,6 +17,11 @@ export function useVoter() {
   const [balance, setBalance] = useState(null);
 
   const refresh = useCallback(async () => {
+    if (isBackendPreview) {
+      setVoterId(null);
+      setBalance(0);
+      return;
+    }
     const vid = getOrCreateVoterId();
     setVoterId(vid);
     try {
